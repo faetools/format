@@ -3,6 +3,7 @@ module github.com/faetools/format
 go 1.17
 
 require (
+	github.com/Masterminds/semver/v3 v3.1.0
 	github.com/faetools/kit v0.0.7
 	github.com/goccy/go-yaml v1.9.5
 	github.com/golangci/golangci-lint v1.44.2
