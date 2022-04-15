@@ -5,7 +5,7 @@ import "github.com/Masterminds/semver/v3"
 
 var (
 	// Version is the version of format.
-	Version = semver.MustParse("0.0.2")
+	Version = semver.MustParse("0.0.3")
 
 	// GoVersion declares what version of Go should be used.
 	GoVersion = semver.MustParse("1.17.8")
