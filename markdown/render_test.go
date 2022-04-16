@@ -732,3 +732,31 @@ func TestCustomKind(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, "<custom>foo</custom>\n", string(b))
 }
+
+func TestRenderImage(t *testing.T) {
+	t.Parallel()
+
+	doc := ast.NewDocument()
+
+	p := ast.NewParagraph()
+	p.AppendChild(p, ast.NewString([]byte("first paragraph")))
+	doc.AppendChild(doc, p)
+
+	im := ast.NewImage(ast.NewLink())
+	im.Destination = []byte("https://file-examples.com/storage/fe7dab924f625a99b93a180/2017/10/file_example_JPG_100kB.jpg")
+	im.Title = []byte("image title")
+	doc.AppendChild(doc, im)
+
+	p = ast.NewParagraph()
+	p.AppendChild(p, ast.NewString([]byte("second paragraph")))
+	doc.AppendChild(doc, p)
+
+	b, err := markdown.Render(nil, nil, doc)
+	assert.NoError(t, err)
+	assert.Equal(t, `first paragraph
+
+![](https://file-examples.com/storage/fe7dab924f625a99b93a180/2017/10/file_example_JPG_100kB.jpg "image title")
+
+second paragraph
+`, string(b))
+}

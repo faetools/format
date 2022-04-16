@@ -48,7 +48,7 @@ func Render(metaData interface{}, src []byte, doc ast.Node, options ...renderer.
 		return nil, errors.Wrap(err, "rendering markdown")
 	}
 
-	// Trim all new lines but add one at the end.
+	// We trimmed all new lines but we still want one at the end.
 	if _, err := b.Write(newLine); err != nil {
 		return nil, err
 	}

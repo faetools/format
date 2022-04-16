@@ -21,21 +21,21 @@ func Upgrade(w io.Writer) Writer {
 		return w
 	}
 
-	exp := &allWriter{Writer: w}
+	upgrade := &allWriter{Writer: w}
 
 	if bw, ok := w.(ByteWriter); ok {
-		exp.ByteWriter = bw
+		upgrade.ByteWriter = bw
 	} else {
-		exp.ByteWriter = &byteWriter{w}
+		upgrade.ByteWriter = &byteWriter{w}
 	}
 
 	if sw, ok := w.(StringWriter); ok {
-		exp.StringWriter = sw
+		upgrade.StringWriter = sw
 	} else {
-		exp.StringWriter = &stringWriter{w}
+		upgrade.StringWriter = &stringWriter{w}
 	}
 
-	return exp
+	return upgrade
 }
 
 type (

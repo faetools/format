@@ -54,11 +54,11 @@ var (
 	linkTransition  = []byte{']', '('}
 
 	// Terminal.
-	tReset  = []byte{bTerminalControl, bLeftSquareBracket, '0', bM}
-	tBold   = []byte{bTerminalControl, bLeftSquareBracket, '1', bM}
-	tItalic = []byte{bTerminalControl, bLeftSquareBracket, '3', bM}
-	// TUnderline     = []byte{bTerminalControl, bLeftSquareBracket, '4', bM}
-	// tStrikethrough = []byte{bTerminalControl, bLeftSquareBracket, '9', bM}.
+	tReset         = []byte{bTerminalControl, bLeftSquareBracket, '0', bM}
+	tBold          = []byte{bTerminalControl, bLeftSquareBracket, '1', bM}
+	tItalic        = []byte{bTerminalControl, bLeftSquareBracket, '3', bM}
+	tUnderline     = []byte{bTerminalControl, bLeftSquareBracket, '4', bM}
+	tStrikethrough = []byte{bTerminalControl, bLeftSquareBracket, '9', bM}
 )
 
 func newBlockquoteWriter(w io.Writer) writers.Writer {

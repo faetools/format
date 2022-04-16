@@ -305,8 +305,9 @@ func (r *NodeRenderer) renderCodeSpan(w util.BufWriter, source []byte, node ast.
 }
 
 const (
-	levelItalics = 1
-	levelBold    = 2
+	levelItalics    = 1
+	levelBold       = 2
+	levelUnderlined = 3
 )
 
 var errInvalidEmphLevel = errors.New("invalid emphasis level")
@@ -325,6 +326,8 @@ func (r *NodeRenderer) renderEmphasis(w util.BufWriter, source []byte, node ast.
 				_, _ = w.Write(tItalic)
 			case levelBold:
 				_, _ = w.Write(tBold)
+			case levelUnderlined:
+				_, _ = w.Write(tUnderline)
 			}
 		} else {
 			_, _ = w.Write(tReset)
@@ -384,6 +387,11 @@ func (r *NodeRenderer) renderImage(w util.BufWriter, source []byte, node ast.Nod
 	}
 
 	_ = w.WriteByte(bRightParenthesis)
+
+	// if part of a document, we want to leave some space before the next element
+	if p := n.Parent(); p == nil || p.Kind() == ast.KindDocument {
+		_, _ = w.Write(twoNewLines)
+	}
 
 	return ast.WalkSkipChildren, nil
 }
