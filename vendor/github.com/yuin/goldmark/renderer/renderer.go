@@ -3,7 +3,9 @@ package renderer
 
 import (
 	"bufio"
+	"fmt"
 	"io"
+	"os"
 	"sync"
 
 	"github.com/yuin/goldmark/ast"
@@ -161,6 +163,12 @@ func (r *renderer) Render(w io.Writer, source []byte, n ast.Node) error {
 	err := ast.Walk(n, func(n ast.Node, entering bool) (ast.WalkStatus, error) {
 		s := ast.WalkStatus(ast.WalkContinue)
 		var err error
+
+		if len(r.nodeRendererFuncs) < int(n.Kind()) {
+			fmt.Println(n.Kind(), "not implemented")
+			os.Exit(1)
+		}
+
 		f := r.nodeRendererFuncs[n.Kind()]
 		if f != nil {
 			s, err = f(writer, source, n, entering)
