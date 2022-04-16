@@ -1,0 +1,863 @@
+[
+  {
+    "archived": false,
+    "created_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "created_time": "2022-03-27T18:19:00Z",
+    "has_children": false,
+    "id": "5aa79790-8f17-4d94-b0a2-f32d7b3ff872",
+    "last_edited_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "last_edited_time": "2022-03-27T19:19:00Z",
+    "object": "block",
+    "paragraph": {
+      "children": null,
+      "color": "default",
+      "rich_text": [
+        {
+          "annotations": {
+            "bold": false,
+            "code": false,
+            "color": "default",
+            "italic": false,
+            "strikethrough": false,
+            "underline": false
+          },
+          "plain_text": "Hi, I'm Mark Rosemaker[^1].",
+          "text": {
+            "content": "Hi, I'm Mark Rosemaker[^1]."
+          },
+          "type": "text"
+        }
+      ]
+    },
+    "type": "paragraph"
+  },
+  {
+    "archived": false,
+    "created_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "created_time": "2022-03-27T18:19:00Z",
+    "has_children": false,
+    "id": "5258593c-40fe-4e5b-b61e-cb83a299a09a",
+    "last_edited_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "last_edited_time": "2022-03-28T14:09:00Z",
+    "object": "block",
+    "paragraph": {
+      "children": null,
+      "color": "default",
+      "rich_text": [
+        {
+          "annotations": {
+            "bold": false,
+            "code": false,
+            "color": "default",
+            "italic": false,
+            "strikethrough": false,
+            "underline": false
+          },
+          "plain_text": "[^1]: Or at least, that is the direct translation of my birth name Marco Rösler.",
+          "text": {
+            "content": "[^1]: Or at least, that is the direct translation of my birth name Marco Rösler."
+          },
+          "type": "text"
+        }
+      ]
+    },
+    "type": "paragraph"
+  },
+  {
+    "archived": false,
+    "created_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "created_time": "2022-03-27T18:20:00Z",
+    "has_children": false,
+    "id": "992f067c-22d6-4c33-bb5b-f6235e6242b5",
+    "image": {
+      "file": {
+        "expiry_time": "2022-04-12T16:22:38.961Z",
+        "url": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/97341fe7-1335-4d5f-96a7-1641dc094e6f/about.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220412%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220412T152239Z&X-Amz-Expires=3600&X-Amz-Signature=833102e70cbab662c06ca3b82fc4b28b934c968bb5107a720e821596f196b753&X-Amz-SignedHeaders=host&x-id=GetObject"
+      },
+      "type": "file"
+    },
+    "last_edited_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "last_edited_time": "2022-03-28T14:09:00Z",
+    "object": "block",
+    "type": "image"
+  },
+  {
+    "archived": false,
+    "created_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "created_time": "2022-03-27T18:19:00Z",
+    "has_children": false,
+    "id": "2b5e5533-69dc-48b0-8eb8-0cc8f1a4f7f2",
+    "last_edited_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "last_edited_time": "2022-03-27T18:19:00Z",
+    "object": "block",
+    "paragraph": {
+      "children": null,
+      "color": "default",
+      "rich_text": [
+        {
+          "annotations": {
+            "bold": false,
+            "code": false,
+            "color": "default",
+            "italic": false,
+            "strikethrough": false,
+            "underline": false
+          },
+          "plain_text": "Since 2015, I've been teaching German online with ",
+          "text": {
+            "content": "Since 2015, I've been teaching German online with "
+          },
+          "type": "text"
+        },
+        {
+          "annotations": {
+            "bold": false,
+            "code": false,
+            "color": "default",
+            "italic": false,
+            "strikethrough": false,
+            "underline": false
+          },
+          "href": "https://www.authenticgermanlearning.com/",
+          "plain_text": "Authentic German Learning",
+          "text": {
+            "content": "Authentic German Learning",
+            "link": {
+              "type": "",
+              "url": "https://www.authenticgermanlearning.com/"
+            }
+          },
+          "type": "text"
+        },
+        {
+          "annotations": {
+            "bold": false,
+            "code": false,
+            "color": "default",
+            "italic": false,
+            "strikethrough": false,
+            "underline": false
+          },
+          "plain_text": " and since 2016, I am doing it as a digital nomad[^2].",
+          "text": {
+            "content": " and since 2016, I am doing it as a digital nomad[^2]."
+          },
+          "type": "text"
+        }
+      ]
+    },
+    "type": "paragraph"
+  },
+  {
+    "archived": false,
+    "created_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "created_time": "2022-03-27T18:19:00Z",
+    "has_children": false,
+    "id": "dbc1924e-7335-4874-ba16-0aa0a3f4a74f",
+    "last_edited_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "last_edited_time": "2022-03-27T19:05:00Z",
+    "object": "block",
+    "paragraph": {
+      "children": null,
+      "color": "default",
+      "rich_text": [
+        {
+          "annotations": {
+            "bold": false,
+            "code": false,
+            "color": "default",
+            "italic": false,
+            "strikethrough": false,
+            "underline": false
+          },
+          "plain_text": "[^2]: A digital nomad is someone who works online and can, therefore, live a nomadic lifestyle and does so.",
+          "text": {
+            "content": "[^2]: A digital nomad is someone who works online and can, therefore, live a nomadic lifestyle and does so."
+          },
+          "type": "text"
+        }
+      ]
+    },
+    "type": "paragraph"
+  },
+  {
+    "archived": false,
+    "created_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "created_time": "2022-03-27T18:19:00Z",
+    "has_children": false,
+    "id": "241ed5d2-f0fe-41c5-871b-fb3c89b4db67",
+    "last_edited_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "last_edited_time": "2022-03-27T18:19:00Z",
+    "object": "block",
+    "paragraph": {
+      "children": null,
+      "color": "default",
+      "rich_text": [
+        {
+          "annotations": {
+            "bold": false,
+            "code": false,
+            "color": "default",
+            "italic": false,
+            "strikethrough": false,
+            "underline": false
+          },
+          "plain_text": "Besides that, I have many other interests. Furthermore, I now feel ready to teach all the other things I learned in the last couple of years.",
+          "text": {
+            "content": "Besides that, I have many other interests. Furthermore, I now feel ready to teach all the other things I learned in the last couple of years."
+          },
+          "type": "text"
+        }
+      ]
+    },
+    "type": "paragraph"
+  },
+  {
+    "archived": false,
+    "created_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "created_time": "2022-03-27T18:19:00Z",
+    "has_children": false,
+    "id": "b8ee17ed-e792-460a-98fb-f4f8eaca64b3",
+    "last_edited_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "last_edited_time": "2022-03-27T18:19:00Z",
+    "object": "block",
+    "paragraph": {
+      "children": null,
+      "color": "default",
+      "rich_text": [
+        {
+          "annotations": {
+            "bold": false,
+            "code": false,
+            "color": "default",
+            "italic": false,
+            "strikethrough": false,
+            "underline": false
+          },
+          "plain_text": "So stay tuned if you want to find out more about",
+          "text": {
+            "content": "So stay tuned if you want to find out more about"
+          },
+          "type": "text"
+        }
+      ]
+    },
+    "type": "paragraph"
+  },
+  {
+    "archived": false,
+    "bulleted_list_item": {
+      "children": [
+        {
+          "archived": false,
+          "bulleted_list_item": {
+            "children": [],
+            "color": "default",
+            "rich_text": [
+              {
+                "annotations": {
+                  "bold": false,
+                  "code": false,
+                  "color": "default",
+                  "italic": false,
+                  "strikethrough": false,
+                  "underline": false
+                },
+                "plain_text": "social media",
+                "text": {
+                  "content": "social media"
+                },
+                "type": "text"
+              }
+            ]
+          },
+          "created_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "created_time": "2022-03-27T18:19:00Z",
+          "has_children": false,
+          "id": "455cd9ab-5112-4cb3-a868-9c83ed5d319b",
+          "last_edited_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "last_edited_time": "2022-03-27T18:19:00Z",
+          "object": "block",
+          "type": "bulleted_list_item"
+        },
+        {
+          "archived": false,
+          "bulleted_list_item": {
+            "children": [],
+            "color": "default",
+            "rich_text": [
+              {
+                "annotations": {
+                  "bold": false,
+                  "code": false,
+                  "color": "default",
+                  "italic": false,
+                  "strikethrough": false,
+                  "underline": false
+                },
+                "plain_text": "SEO",
+                "text": {
+                  "content": "SEO"
+                },
+                "type": "text"
+              }
+            ]
+          },
+          "created_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "created_time": "2022-03-27T18:19:00Z",
+          "has_children": false,
+          "id": "acb84377-39a8-4e63-aa1f-b030238e6ed2",
+          "last_edited_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "last_edited_time": "2022-03-27T18:19:00Z",
+          "object": "block",
+          "type": "bulleted_list_item"
+        }
+      ],
+      "color": "default",
+      "rich_text": [
+        {
+          "annotations": {
+            "bold": false,
+            "code": false,
+            "color": "default",
+            "italic": false,
+            "strikethrough": false,
+            "underline": false
+          },
+          "plain_text": "how to start and run an online business",
+          "text": {
+            "content": "how to start and run an online business"
+          },
+          "type": "text"
+        }
+      ]
+    },
+    "created_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "created_time": "2022-03-27T18:19:00Z",
+    "has_children": true,
+    "id": "4002cfed-550b-4aaf-a5d6-88dcf0efe120",
+    "last_edited_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "last_edited_time": "2022-03-27T18:19:00Z",
+    "object": "block",
+    "type": "bulleted_list_item"
+  },
+  {
+    "archived": false,
+    "bulleted_list_item": {
+      "children": [
+        {
+          "archived": false,
+          "bulleted_list_item": {
+            "children": [],
+            "color": "default",
+            "rich_text": [
+              {
+                "annotations": {
+                  "bold": false,
+                  "code": false,
+                  "color": "default",
+                  "italic": false,
+                  "strikethrough": false,
+                  "underline": false
+                },
+                "plain_text": "rationality",
+                "text": {
+                  "content": "rationality"
+                },
+                "type": "text"
+              }
+            ]
+          },
+          "created_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "created_time": "2022-03-27T18:19:00Z",
+          "has_children": false,
+          "id": "e308b2d5-da3d-448a-8e8f-1a0996d6f96b",
+          "last_edited_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "last_edited_time": "2022-03-27T18:19:00Z",
+          "object": "block",
+          "type": "bulleted_list_item"
+        },
+        {
+          "archived": false,
+          "bulleted_list_item": {
+            "children": [],
+            "color": "default",
+            "rich_text": [
+              {
+                "annotations": {
+                  "bold": false,
+                  "code": false,
+                  "color": "default",
+                  "italic": false,
+                  "strikethrough": false,
+                  "underline": false
+                },
+                "plain_text": "ethics",
+                "text": {
+                  "content": "ethics"
+                },
+                "type": "text"
+              }
+            ]
+          },
+          "created_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "created_time": "2022-03-27T18:19:00Z",
+          "has_children": false,
+          "id": "f89ea64c-1414-4b23-9011-2e684bb33d23",
+          "last_edited_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "last_edited_time": "2022-03-27T18:19:00Z",
+          "object": "block",
+          "type": "bulleted_list_item"
+        }
+      ],
+      "color": "default",
+      "rich_text": [
+        {
+          "annotations": {
+            "bold": false,
+            "code": false,
+            "color": "default",
+            "italic": false,
+            "strikethrough": false,
+            "underline": false
+          },
+          "plain_text": "philosophy",
+          "text": {
+            "content": "philosophy"
+          },
+          "type": "text"
+        }
+      ]
+    },
+    "created_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "created_time": "2022-03-27T18:19:00Z",
+    "has_children": true,
+    "id": "bf0b2c2a-51b1-4e0d-9aa3-b57d7efc34e2",
+    "last_edited_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "last_edited_time": "2022-03-27T18:19:00Z",
+    "object": "block",
+    "type": "bulleted_list_item"
+  },
+  {
+    "archived": false,
+    "bulleted_list_item": {
+      "children": [
+        {
+          "archived": false,
+          "bulleted_list_item": {
+            "children": [],
+            "color": "default",
+            "rich_text": [
+              {
+                "annotations": {
+                  "bold": false,
+                  "code": false,
+                  "color": "default",
+                  "italic": false,
+                  "strikethrough": false,
+                  "underline": false
+                },
+                "plain_text": "website creation with Hugo / HTML / CSS",
+                "text": {
+                  "content": "website creation with Hugo / HTML / CSS"
+                },
+                "type": "text"
+              }
+            ]
+          },
+          "created_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "created_time": "2022-03-27T18:19:00Z",
+          "has_children": false,
+          "id": "e1f03953-9b54-4458-a38d-6185adf120ad",
+          "last_edited_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "last_edited_time": "2022-03-27T18:19:00Z",
+          "object": "block",
+          "type": "bulleted_list_item"
+        },
+        {
+          "archived": false,
+          "bulleted_list_item": {
+            "children": [],
+            "color": "default",
+            "rich_text": [
+              {
+                "annotations": {
+                  "bold": false,
+                  "code": false,
+                  "color": "default",
+                  "italic": false,
+                  "strikethrough": false,
+                  "underline": false
+                },
+                "plain_text": "creating a chat bot with Go (golang)",
+                "text": {
+                  "content": "creating a chat bot with Go (golang)"
+                },
+                "type": "text"
+              }
+            ]
+          },
+          "created_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "created_time": "2022-03-27T18:19:00Z",
+          "has_children": false,
+          "id": "a4abd275-cf4e-4fff-bde6-2dded6cc1c7c",
+          "last_edited_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "last_edited_time": "2022-03-27T18:19:00Z",
+          "object": "block",
+          "type": "bulleted_list_item"
+        }
+      ],
+      "color": "default",
+      "rich_text": [
+        {
+          "annotations": {
+            "bold": false,
+            "code": false,
+            "color": "default",
+            "italic": false,
+            "strikethrough": false,
+            "underline": false
+          },
+          "plain_text": "programming",
+          "text": {
+            "content": "programming"
+          },
+          "type": "text"
+        }
+      ]
+    },
+    "created_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "created_time": "2022-03-27T18:19:00Z",
+    "has_children": true,
+    "id": "36ab82d3-b926-40f8-8f02-99908cf85352",
+    "last_edited_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "last_edited_time": "2022-03-27T18:19:00Z",
+    "object": "block",
+    "type": "bulleted_list_item"
+  },
+  {
+    "archived": false,
+    "bulleted_list_item": {
+      "children": [
+        {
+          "archived": false,
+          "bulleted_list_item": {
+            "children": [],
+            "color": "default",
+            "rich_text": [
+              {
+                "annotations": {
+                  "bold": false,
+                  "code": false,
+                  "color": "default",
+                  "italic": false,
+                  "strikethrough": false,
+                  "underline": false
+                },
+                "plain_text": "my journey through Europe",
+                "text": {
+                  "content": "my journey through Europe"
+                },
+                "type": "text"
+              }
+            ]
+          },
+          "created_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "created_time": "2022-03-27T18:19:00Z",
+          "has_children": false,
+          "id": "796f4dc1-537f-4176-bc3a-140e761c549d",
+          "last_edited_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "last_edited_time": "2022-03-27T18:19:00Z",
+          "object": "block",
+          "type": "bulleted_list_item"
+        },
+        {
+          "archived": false,
+          "bulleted_list_item": {
+            "children": [],
+            "color": "default",
+            "rich_text": [
+              {
+                "annotations": {
+                  "bold": false,
+                  "code": false,
+                  "color": "default",
+                  "italic": false,
+                  "strikethrough": false,
+                  "underline": false
+                },
+                "plain_text": "traveling on a budget",
+                "text": {
+                  "content": "traveling on a budget"
+                },
+                "type": "text"
+              }
+            ]
+          },
+          "created_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "created_time": "2022-03-27T18:19:00Z",
+          "has_children": false,
+          "id": "04a713c7-647d-4e7b-a09c-0d7a4337b7ac",
+          "last_edited_by": {
+            "avatar_url": "",
+            "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+            "name": "",
+            "object": "user",
+            "type": ""
+          },
+          "last_edited_time": "2022-03-27T19:19:00Z",
+          "object": "block",
+          "type": "bulleted_list_item"
+        }
+      ],
+      "color": "default",
+      "rich_text": [
+        {
+          "annotations": {
+            "bold": false,
+            "code": false,
+            "color": "default",
+            "italic": false,
+            "strikethrough": false,
+            "underline": false
+          },
+          "plain_text": "lifestyle",
+          "text": {
+            "content": "lifestyle"
+          },
+          "type": "text"
+        }
+      ]
+    },
+    "created_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "created_time": "2022-03-27T18:19:00Z",
+    "has_children": true,
+    "id": "01acc548-faf2-4dbd-a2e4-0649b1e43985",
+    "last_edited_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "last_edited_time": "2022-03-27T19:19:00Z",
+    "object": "block",
+    "type": "bulleted_list_item"
+  }
+]
