@@ -28,7 +28,9 @@ var myParser = goldmark.New(
 	goldmark.WithExtensions(extension.GFM)).Parser()
 
 // Render renders a given parsed document.
-func Render(metaData interface{}, src []byte, doc ast.Node, options ...renderer.Option) ([]byte, error) {
+func Render(metaData interface{}, src []byte, doc ast.Node,
+	renderFuncsOverrides NodeRendererFuncs, options ...renderer.Option,
+) ([]byte, error) {
 	b := &bytes.Buffer{}
 
 	if err := renderFrontMatter(b, metaData); err != nil {
@@ -37,7 +39,7 @@ func Render(metaData interface{}, src []byte, doc ast.Node, options ...renderer.
 
 	w := writers.NewTrimWriter(b, sNewLine)
 
-	nr := NewNodeRenderer()
+	nr := NewNodeRenderer(renderFuncsOverrides)
 	nr.additionalOptions = options
 
 	opts := append([]renderer.Option{

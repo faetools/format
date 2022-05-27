@@ -27,7 +27,7 @@ func TestRender(t *testing.T) {
 		doc.AppendChild(doc, b)
 	}
 
-	b, err := markdown.Render(nil, nil, doc)
+	b, err := markdown.Render(nil, nil, doc, nil)
 	assert.NoError(t, err)
 	assert.Equal(t, want, string(b))
 }

@@ -16,12 +16,19 @@ import (
 // nodes as markdown.
 type NodeRenderer struct {
 	Config
-	additionalOptions []renderer.Option
+	additionalOptions    []renderer.Option
+	renderFuncsOverrides NodeRendererFuncs
 }
 
+// NodeRendererFuncs is a mapping of node rendering functions that should overwrite the default.
+type NodeRendererFuncs map[ast.NodeKind]renderer.NodeRendererFunc
+
 // NewNodeRenderer returns a new Renderer with given options.
-func NewNodeRenderer(opts ...Option) *NodeRenderer {
-	r := &NodeRenderer{Config: NewConfig()}
+func NewNodeRenderer(renderFuncsOverrides NodeRendererFuncs, opts ...Option) *NodeRenderer {
+	r := &NodeRenderer{
+		Config:               NewConfig(),
+		renderFuncsOverrides: renderFuncsOverrides,
+	}
 
 	for _, opt := range opts {
 		opt.SetMarkdownOption(&r.Config)
@@ -32,28 +39,38 @@ func NewNodeRenderer(opts ...Option) *NodeRenderer {
 
 // RegisterFuncs implements NodeRenderer.RegisterFuncs .
 func (r *NodeRenderer) RegisterFuncs(reg renderer.NodeRendererFuncRegisterer) {
-	// Blocks.
-	reg.Register(ast.KindHeading, r.renderHeading)
-	reg.Register(ast.KindBlockquote, r.renderBlockquote)
-	reg.Register(ast.KindCodeBlock, r.renderCodeBlock)
-	reg.Register(ast.KindFencedCodeBlock, r.renderFencedCodeBlock)
-	reg.Register(ast.KindHTMLBlock, r.renderHTMLBlock)
-	reg.Register(ast.KindList, r.renderList)
-	reg.Register(ast.KindListItem, r.renderListItem)
-	reg.Register(ast.KindParagraph, r.renderParagraph)
-	reg.Register(ast.KindTextBlock, r.renderTextBlock)
-	reg.Register(ast.KindThematicBreak, r.renderThematicBreak)
-	reg.Register(extast.KindStrikethrough, r.renderStrikethrough)
+	funcs := NodeRendererFuncs{
+		// Blocks.
+		ast.KindHeading:          r.renderHeading,
+		ast.KindBlockquote:       r.renderBlockquote,
+		ast.KindCodeBlock:        r.renderCodeBlock,
+		ast.KindFencedCodeBlock:  r.renderFencedCodeBlock,
+		ast.KindHTMLBlock:        r.renderHTMLBlock,
+		ast.KindList:             r.renderList,
+		ast.KindListItem:         r.renderListItem,
+		ast.KindParagraph:        r.renderParagraph,
+		ast.KindTextBlock:        r.renderTextBlock,
+		ast.KindThematicBreak:    r.renderThematicBreak,
+		extast.KindStrikethrough: r.renderStrikethrough,
 
-	// Inlines.
-	reg.Register(ast.KindAutoLink, r.renderAutoLink)
-	reg.Register(ast.KindCodeSpan, r.renderCodeSpan)
-	reg.Register(ast.KindEmphasis, r.renderEmphasis)
-	reg.Register(ast.KindImage, r.renderImage)
-	reg.Register(ast.KindLink, r.renderLink)
-	reg.Register(ast.KindRawHTML, r.renderRawHTML)
-	reg.Register(ast.KindText, r.renderText)
-	reg.Register(ast.KindString, r.renderString)
+		// Inlines.
+		ast.KindAutoLink: r.renderAutoLink,
+		ast.KindCodeSpan: r.renderCodeSpan,
+		ast.KindEmphasis: r.renderEmphasis,
+		ast.KindImage:    r.renderImage,
+		ast.KindLink:     r.renderLink,
+		ast.KindRawHTML:  r.renderRawHTML,
+		ast.KindText:     r.renderText,
+		ast.KindString:   r.renderString,
+	}
+
+	for kind, f := range r.renderFuncsOverrides {
+		funcs[kind] = f
+	}
+
+	for kind, f := range funcs {
+		reg.Register(kind, f)
+	}
 }
 
 func (r *NodeRenderer) renderHeading(w util.BufWriter,

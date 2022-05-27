@@ -5,8 +5,9 @@ import (
 
 	"github.com/faetools/format/markdown"
 	"github.com/stretchr/testify/assert"
+	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/ast"
-	"github.com/yuin/goldmark/renderer"
+	"github.com/yuin/goldmark/text"
 	"github.com/yuin/goldmark/util"
 )
 
@@ -678,7 +679,10 @@ func TestRendering_Terminal(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
-			res, err := markdown.Format([]byte(tt.input), markdown.WithTerminal())
+			src := []byte(tt.input)
+			parsed := goldmark.DefaultParser().Parse(text.NewReader(src))
+
+			res, err := markdown.Render(nil, src, parsed, nil, markdown.WithTerminal())
 			assert.NoError(t, err)
 			assert.Equal(t, tt.want, string(res), "does not match wanted output")
 
@@ -691,28 +695,9 @@ func TestRendering_Terminal(t *testing.T) {
 
 var customKind = ast.NewNodeKind("customKind")
 
-type custom struct {
-	*ast.String
-}
+type custom struct{ *ast.String }
 
 func (c custom) Kind() ast.NodeKind { return customKind }
-
-type customRenderer struct{}
-
-// RegisterFuncs implements renderer.NodeRenderer.RegisterFuncs.
-func (r *customRenderer) RegisterFuncs(reg renderer.NodeRendererFuncRegisterer) {
-	reg.Register(customKind, func(w util.BufWriter, _ []byte, n ast.Node, entering bool) (ast.WalkStatus, error) {
-		if !entering {
-			w.WriteString("</custom>")
-			return ast.WalkContinue, nil
-		}
-
-		w.WriteString("<custom>")
-		w.Write(n.(*custom).Value)
-
-		return ast.WalkContinue, nil
-	})
-}
 
 func wrapNode(parent, child ast.Node) ast.Node {
 	parent.AppendChild(parent, child)
@@ -726,9 +711,21 @@ func TestCustomKind(t *testing.T) {
 	n = wrapNode(ast.NewParagraph(), n)
 	n = wrapNode(ast.NewDocument(), n)
 
-	b, err := markdown.Render(nil, nil, n, renderer.WithNodeRenderers(
-		util.Prioritized(&customRenderer{}, 1),
-	))
+	b, err := markdown.Render(nil, nil, n, markdown.NodeRendererFuncs{
+		customKind: func(w util.BufWriter, _ []byte, n ast.Node, entering bool) (
+			ast.WalkStatus, error,
+		) {
+			if !entering {
+				w.WriteString("</custom>")
+				return ast.WalkContinue, nil
+			}
+
+			w.WriteString("<custom>")
+			w.Write(n.(*custom).Value)
+
+			return ast.WalkContinue, nil
+		},
+	})
 	assert.NoError(t, err)
 	assert.Equal(t, "<custom>foo</custom>\n", string(b))
 }
@@ -751,7 +748,7 @@ func TestRenderImage(t *testing.T) {
 	p.AppendChild(p, ast.NewString([]byte("second paragraph")))
 	doc.AppendChild(doc, p)
 
-	b, err := markdown.Render(nil, nil, doc)
+	b, err := markdown.Render(nil, nil, doc, nil)
 	assert.NoError(t, err)
 	assert.Equal(t, `first paragraph
 
