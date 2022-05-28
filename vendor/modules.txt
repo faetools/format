@@ -23,7 +23,7 @@ github.com/faetools/kit/terminal
 # github.com/fatih/color v1.13.0
 ## explicit; go 1.13
 github.com/fatih/color
-# github.com/fsnotify/fsnotify v1.5.1
+# github.com/fsnotify/fsnotify v1.5.3
 ## explicit; go 1.13
 github.com/fsnotify/fsnotify
 # github.com/go-critic/go-critic v0.6.2
@@ -192,13 +192,13 @@ github.com/stretchr/testify/require
 # github.com/subosito/gotenv v1.2.0
 ## explicit
 github.com/subosito/gotenv
-# github.com/tdewolff/minify/v2 v2.11.1
+# github.com/tdewolff/minify/v2 v2.11.5
 ## explicit; go 1.13
 github.com/tdewolff/minify/v2
 github.com/tdewolff/minify/v2/css
 github.com/tdewolff/minify/v2/html
 github.com/tdewolff/minify/v2/js
-# github.com/tdewolff/parse/v2 v2.5.28
+# github.com/tdewolff/parse/v2 v2.5.32
 ## explicit; go 1.13
 github.com/tdewolff/parse/v2
 github.com/tdewolff/parse/v2/buffer

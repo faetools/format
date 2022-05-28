@@ -12,7 +12,7 @@ require (
 	github.com/moby/buildkit v0.10.1
 	github.com/pkg/errors v0.9.1
 	github.com/stretchr/testify v1.7.1
-	github.com/tdewolff/minify/v2 v2.11.1
+	github.com/tdewolff/minify/v2 v2.11.5
 	github.com/tidwall/pretty v1.2.0
 	github.com/yuin/goldmark v1.4.11
 	github.com/yuin/goldmark-meta v1.1.0
@@ -28,7 +28,7 @@ require (
 	github.com/deepmap/oapi-codegen v1.9.1 // indirect
 	github.com/faetools/client v0.0.0-20220318211513-a9b944e5b437 // indirect
 	github.com/fatih/color v1.13.0 // indirect
-	github.com/fsnotify/fsnotify v1.5.1 // indirect
+	github.com/fsnotify/fsnotify v1.5.3 // indirect
 	github.com/go-critic/go-critic v0.6.2 // indirect
 	github.com/go-toolsmith/astcast v1.0.0 // indirect
 	github.com/go-toolsmith/astcopy v1.0.0 // indirect
@@ -60,7 +60,7 @@ require (
 	github.com/spf13/viper v1.10.1 // indirect
 	github.com/stretchr/objx v0.2.0 // indirect
 	github.com/subosito/gotenv v1.2.0 // indirect
-	github.com/tdewolff/parse/v2 v2.5.28 // indirect
+	github.com/tdewolff/parse/v2 v2.5.32 // indirect
 	golang.org/x/mod v0.6.0-dev.0.20220106191415-9b9b3d81d5e3 // indirect
 	golang.org/x/sys v0.0.0-20220408201424-a24fb2fb8a0f // indirect
 	golang.org/x/text v0.3.7 // indirect

@@ -477,10 +477,10 @@ func (m *jsMinifier) minifyAlias(alias js.Alias) {
 	}
 }
 
-func (m *jsMinifier) minifyParams(params js.Params) {
+func (m *jsMinifier) minifyParams(params js.Params, removeUnused bool) {
 	// remove unused parameters from the end
 	j := len(params.List)
-	if params.Rest == nil {
+	if removeUnused && params.Rest == nil {
 		for ; 0 < j; j-- {
 			if v, ok := params.List[j-1].Binding.(*js.Var); !ok || ok && 1 < v.Uses {
 				break
@@ -608,7 +608,7 @@ func (m *jsMinifier) minifyFuncDecl(decl *js.FuncDecl, inExpr bool) {
 		m.renamer.renameScope(decl.Body.Scope)
 	}
 
-	m.minifyParams(decl.Params)
+	m.minifyParams(decl.Params, true)
 	m.minifyBlockStmt(&decl.Body)
 	m.renamer.rename = parentRename
 }
@@ -641,7 +641,7 @@ func (m *jsMinifier) minifyMethodDecl(decl *js.MethodDecl) {
 	}
 	m.minifyPropertyName(decl.Name)
 	m.renamer.renameScope(decl.Body.Scope)
-	m.minifyParams(decl.Params)
+	m.minifyParams(decl.Params, !decl.Set)
 	m.minifyBlockStmt(&decl.Body)
 	m.renamer.rename = parentRename
 }
@@ -673,7 +673,7 @@ func (m *jsMinifier) minifyArrowFunc(decl *js.ArrowFunc) {
 	} else {
 		parentInFor := m.inFor
 		m.inFor = false
-		m.minifyParams(decl.Params)
+		m.minifyParams(decl.Params, true)
 		m.inFor = parentInFor
 	}
 	m.write(arrowBytes)
@@ -907,7 +907,7 @@ func (m *jsMinifier) minifyExpr(i js.IExpr, prec js.OpPrec) {
 		}
 	case *js.LiteralExpr:
 		if expr.TokenType == js.DecimalToken {
-			m.write(minify.Number(expr.Data, m.o.Precision))
+			m.write(decimalNumber(expr.Data, m.o.Precision))
 		} else if expr.TokenType == js.BinaryToken {
 			m.write(binaryNumber(expr.Data, m.o.Precision))
 		} else if expr.TokenType == js.OctalToken {
