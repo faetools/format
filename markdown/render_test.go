@@ -1,9 +1,11 @@
 package markdown_test
 
 import (
+	"encoding/json"
 	"testing"
 
 	"github.com/faetools/format/markdown"
+	"github.com/faetools/go-notion/pkg/notion"
 	"github.com/stretchr/testify/assert"
 	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/ast"
@@ -118,6 +120,13 @@ This text is ***really important***.
 This text is ***really important***.
 
 This is really***very***important text.
+`,
+	},
+
+	{
+		`Emphasis in emphasis`,
+		`Normal text **bold text *****bold italized***** just bold**`,
+		`Normal text **bold text *bold italized* just bold**
 `,
 	},
 	{
@@ -755,5 +764,113 @@ func TestRenderImage(t *testing.T) {
 ![](https://file-examples.com/storage/fe7dab924f625a99b93a180/2017/10/file_example_JPG_100kB.jpg "image title")
 
 second paragraph
+`, string(b))
+}
+
+var paragraphRaw = `{
+    "archived": false,
+    "created_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "created_time": "2022-06-30T12:08:00Z",
+    "has_children": false,
+    "id": "7c2d813e-b059-4c42-bc7b-916eb113efc4",
+    "last_edited_by": {
+      "avatar_url": "",
+      "id": "af171d5d-c36f-45bc-a0a3-6086c0dafa45",
+      "name": "",
+      "object": "user",
+      "type": ""
+    },
+    "last_edited_time": "2022-06-30T12:08:00Z",
+    "object": "block",
+    "paragraph": {
+      "children": null,
+      "color": "default",
+      "rich_text": [
+        {
+          "annotations": {
+            "bold": false,
+            "code": false,
+            "color": "default",
+            "italic": false,
+            "strikethrough": false,
+            "underline": false
+          },
+          "plain_text": "What if you operated on the following principle: ",
+          "text": {
+            "content": "What if you operated on the following principle: "
+          },
+          "type": "text"
+        },
+        {
+          "annotations": {
+            "bold": true,
+            "code": false,
+            "color": "default",
+            "italic": false,
+            "strikethrough": false,
+            "underline": false
+          },
+          "plain_text": "What I am doing right now is ",
+          "text": {
+            "content": "What I am doing right now is "
+          },
+          "type": "text"
+        },
+        {
+          "annotations": {
+            "bold": true,
+            "code": false,
+            "color": "default",
+            "italic": true,
+            "strikethrough": false,
+            "underline": false
+          },
+          "plain_text": "exactly",
+          "text": {
+            "content": "exactly"
+          },
+          "type": "text"
+        },
+        {
+          "annotations": {
+            "bold": true,
+            "code": false,
+            "color": "default",
+            "italic": false,
+            "strikethrough": false,
+            "underline": false
+          },
+          "plain_text": " what I should be doing right now.",
+          "text": {
+            "content": " what I should be doing right now."
+          },
+          "type": "text"
+        }
+      ]
+    },
+    "type": "paragraph"
+  }`
+
+func TestNode(t *testing.T) {
+	t.Parallel()
+
+	txt := notion.Block{}
+	assert.NoError(t, json.Unmarshal([]byte(paragraphRaw), &txt))
+
+	txt.Node()
+
+	doc := ast.NewDocument()
+
+	doc.AppendChild(doc, txt.Node())
+
+	b, err := markdown.Render(nil, nil, doc, nil)
+	assert.NoError(t, err)
+	assert.Equal(t, `What if you operated on the following principle: **What I am doing right now is *exactly* what I should be doing right now.**
 `, string(b))
 }

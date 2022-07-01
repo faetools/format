@@ -299,11 +299,15 @@ func (r *NodeRenderer) renderAutoLink(w util.BufWriter, source []byte, node ast.
 
 func (r *NodeRenderer) renderCodeSpan(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
 	// Check if backticks need to be escaped.
-	if c := node.FirstChild(); c != nil &&
-		//nolint:forcetypeassert // is always that
-		bytes.Contains(c.(*ast.Text).Segment.Value(source), []byte{bGraveAccent}) {
-
-		_ = w.WriteByte(bGraveAccent)
+	switch txt := node.FirstChild().(type) {
+	case *ast.Text:
+		if bytes.Contains(txt.Segment.Value(source), []byte{bGraveAccent}) {
+			_ = w.WriteByte(bGraveAccent)
+		}
+	case *ast.String:
+		if bytes.Contains(txt.Value, []byte{bGraveAccent}) {
+			_ = w.WriteByte(bGraveAccent)
+		}
 	}
 
 	if !entering {
@@ -329,12 +333,67 @@ const (
 
 var errInvalidEmphLevel = errors.New("invalid emphasis level")
 
+func ancestorHas(n ast.Node, criterion func(ast.Node) bool) bool {
+	for p := n.Parent(); p != nil; p = p.Parent() {
+		if criterion(p) {
+			return true
+		}
+	}
+
+	return false
+}
+
+func selfOrOnlyChildHas(n ast.Node, criterion func(ast.Node) bool) bool {
+	if n == nil {
+		return false
+	}
+
+	return criterion(n) || onlyChildHas(n, criterion)
+}
+
+func onlyChildHas(n ast.Node, criterion func(ast.Node) bool) bool {
+	if n == nil {
+		return false
+	}
+
+	c := n.FirstChild()
+
+	if c == nil || c.NextSibling() != nil {
+		return false
+	}
+
+	return criterion(c)
+}
+
 func (r *NodeRenderer) renderEmphasis(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
 	n := node.(*ast.Emphasis)
 
-	if n.Attributes() != nil {
-		panic(n.Attributes())
+	sameEmphasis := func(other ast.Node) bool {
+		o, ok := other.(*ast.Emphasis)
+		return ok && o.Level == n.Level
 	}
+
+	// don't write the same emphasis again
+	if (entering && onlyChildHas(n.PreviousSibling(), sameEmphasis)) ||
+		(!entering && onlyChildHas(n.NextSibling(), sameEmphasis)) ||
+		ancestorHas(n, func(ancestor ast.Node) bool {
+			return sameEmphasis(ancestor) ||
+				selfOrOnlyChildHas(ancestor.PreviousSibling(), sameEmphasis) ||
+				selfOrOnlyChildHas(ancestor.NextSibling(), sameEmphasis)
+		}) {
+		return ast.WalkContinue, nil
+	}
+
+	// fmt.Println(n.Level)
+	// n.Dump([]byte("foofoofoofoofoofoofoofoofoofoofoofoofoofoofoo"), 0)
+
+	// if s, ok := n.PreviousSibling().(*ast.Emphasis); ok && s.Level == n.Level {
+	// 	return ast.WalkContinue, nil
+	// }
+
+	// if s, ok := n.NextSibling().(*ast.Emphasis); ok && s.Level == n.Level {
+	// 	return ast.WalkContinue, nil
+	// }
 
 	if r.Config.Terminal {
 		if entering {
