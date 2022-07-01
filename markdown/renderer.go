@@ -318,8 +318,12 @@ func (r *NodeRenderer) renderCodeSpan(w util.BufWriter, source []byte, node ast.
 	_ = w.WriteByte(bGraveAccent)
 
 	for c := node.FirstChild(); c != nil; c = c.NextSibling() {
-		segment := c.(*ast.Text).Segment //nolint:forcetypeassert // is always that
-		_, _ = w.Write(segment.Value(source))
+		switch txt := c.(type) {
+		case *ast.Text:
+			_, _ = w.Write(txt.Segment.Value(source))
+		case *ast.String:
+			_, _ = w.Write(txt.Value)
+		}
 	}
 
 	return ast.WalkSkipChildren, nil
