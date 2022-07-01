@@ -127,7 +127,7 @@ linters-settings:
   gosimple:
     checks:
       - all
-    go: 1.17.8
+    go: 1.18.0
   govet:
     disable:
       - shadow
@@ -195,11 +195,11 @@ linters-settings:
   staticcheck:
     checks:
       - all
-    go: 1.17.8
+    go: 1.18.0
   stylecheck:
     checks:
       - all
-    go: 1.17.8
+    go: 1.18.0
   tagliatelle:
     case:
       rules:
@@ -210,7 +210,7 @@ linters-settings:
     algo: cha
     check-exported: true
   unused:
-    go: 1.17.8
+    go: 1.18.0
   whitespace:
     multi-func: true
     multi-if: true

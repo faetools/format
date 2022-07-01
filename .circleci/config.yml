@@ -6,7 +6,7 @@ orbs:
 executors:
   golang-dev:
     docker:
-      - image: golang:1.17.8
+      - image: golang:1.18.0
 defaults: &resources
   team: firestarters
   gateway_rate_limit_second: 5
@@ -64,7 +64,7 @@ jobs:
             - /tmp/cache
       - go/install:
           cache: true
-          version: 1.17.8
+          version: 1.18.0
       - restore_cache:
           keys:
             - v2-golang-cache-{{ arch }}-{{ checksum "go.sum" }}

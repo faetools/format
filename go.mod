@@ -1,10 +1,9 @@
 module github.com/faetools/format
 
-go 1.17
+go 1.18
 
 require (
 	github.com/MarkRosemaker/semver v1.5.1
-	github.com/Masterminds/semver/v3 v3.1.1
 	github.com/faetools/go-notion v0.0.0-20220413152125-56d315a912b7
 	github.com/faetools/kit v0.0.9
 	github.com/goccy/go-yaml v1.9.5
